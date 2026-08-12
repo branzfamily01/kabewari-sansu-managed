@@ -1,4 +1,4 @@
-const CACHE_NAME = "kabewari-sansu-managed-v1.2.0";
+const CACHE_NAME = "kabewari-sansu-managed-v1.3.0";
 const APP_SHELL = [
   "./",
   "./index.html",

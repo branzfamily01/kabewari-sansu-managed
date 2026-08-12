@@ -2,7 +2,7 @@
   "use strict";
 
   /* ---------------- Managed distribution gate ---------------- */
-  const APP_VERSION = "1.2.0";
+  const APP_VERSION = "1.3.0";
   const MANAGEMENT_CONFIG_URL = "./control.json";
   const stageRoot = document.getElementById("stage-root");
   const managementGate = document.getElementById("management-gate");
@@ -45,6 +45,15 @@
     currentManagementConfig = config;
     managementGate.hidden = true;
     stageRoot.hidden = false;
+
+    const statusLabel = document.getElementById("managed-status-label");
+    const statusVersion = document.getElementById("managed-status-version");
+    if (statusLabel) {
+      const configuredLabel = typeof config.statusLabel === "string" ? config.statusLabel.trim() : "";
+      statusLabel.textContent = configuredLabel || "管理配布版 · ONLINE";
+    }
+    if (statusVersion) statusVersion.textContent = `v${APP_VERSION}`;
+
     const notice = document.getElementById("managed-notice");
     if (notice) {
       const text = typeof config.notice === "string" ? config.notice.trim() : "";
